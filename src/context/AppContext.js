@@ -1,4 +1,5 @@
 import React, { createContext, useReducer } from 'react';
+import ExpenseTotal from '../components/ExpenseTotal';
 
 // 5. The reducer - this is used to update the state, based on the action
 export const AppReducer = (state, action) => {
@@ -58,12 +59,20 @@ export const AppReducer = (state, action) => {
                 budget
             };
         case 'SET_BUDGET':
+            let currentBug = action.payload;
             action.type = "DONE";
-            state.budget = action.payload;
-
-            return {
-                ...state,
-            };
+            if (currentBug < ExpenseTotal.ExpenseTotal) {
+                alert("You cannot reduce the budget value lower than the spending");
+                return {
+                    ...state,
+                };
+            } else {
+                state.budget = currentBug;
+                return {
+                    ...state,
+                };
+            }
+            
         case 'CHG_CURRENCY':
             action.type = "DONE";
             state.currency = action.payload;
