@@ -37,3 +37,13 @@
   }
 }
 
+
+.btn-circle.btn-xl {
+    width: 20px;
+    height: 200px;
+    padding: 13px 18px;
+    border-radius: 60px;
+    font-size: 15px;
+    text-align: center;
+}
+	
